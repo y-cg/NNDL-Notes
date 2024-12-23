@@ -1,3 +1,7 @@
+#let q = (content) => [
+  #text(fill: blue)[#content]
+]
+
 = Basic Concept
 
 === AI, NI, Congitive Function
@@ -114,8 +118,32 @@ Problems near saddle points:
 - slope is small, causing the optimization algorithm to take small steps
 - solution: *stochastic gradient descent*
 
-== Retune hyperparameters
 
-- When Applying a Model to a Different Application
+#pagebreak()
+
+#q[Explain the difference between parameters and hyperparameters.  Give examples of each.]
+
+#q[When do we need to retune hyperparameters?]
+
+- When applying a Model to a different application
 
 - When new data is introduced or the model performance degraded
+
+#q[Explain the “panda” versus the “caviar” approach in tuning hyperparameters.  In which situation would you use panda?  Use caviar? ]
+
+- "Panda" approach: Train only one model, ajust hyperparameter each day
+  - You have lots of data but not much computational resources
+
+- "Caviar" approach: Train many models in *parallel* with different hyperparameters
+  - You have lots of computational resources
+
+#q[Briefly explain the main idea in batch normalization.  How is batch norm similar to normalizing inputs (C2M1L09)?  How are they different?]
+
+#q[How does batch norm improve the calculations?  Under what circumstance would your use batch norm?]
+
+#q[Briefly explain softmax.  What is it use for?  ]
+
+#q[How do we to calculate softmax?]
+
+#q[Name some of the deep learning frameworks presented in this class.  Which two are used the most today?]
+
