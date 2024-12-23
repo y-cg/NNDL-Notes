@@ -275,8 +275,111 @@ Parameters calculation:
 
 #q[Is convolution linear or nonlinear?  Is maxpool linear or nonlinear?]
 
+- convolution: linear
+- max pool: nonlinear 
+
 #q[Why do we place a maxpool layer between conv layers?]
+
+#math.arrow.double add max pool layer between conv layers to introduce *non-linearity*
 
 #q[In the architecture for VGG, ResNet, etc., we always place a maxpool layer between conv layers. Why?]
 
+- Make image smaller, so the computation is faster and more robust
+- Capture the most prominent features instead of noise
+- Introduce non-linearity
 
+
+= C4M2
+
+#q[What are the classical networks presented in the lecture?  Briefly explain the main idea in each network.]
+
+- LeNet: first successful CNN, used for handwritten digit recognition
+
+- AlexNet: bigger and deeper than LeNet (deep nn is effective).
+
+- VGG-16:
+  - $3 times 3$ conv block with $2 times 2$ max pool, very deep network (16 layers with weights)
+  - half image size but double channel size in each layer
+
+- ResNet:
+  - deep NN is hard to train $=>$ vanishing gradient problem
+  - *skip connection*: prevent the lost of information in the deep layers
+
+#q[Briefly describe how a residual block works in ResNet. You can use a diagram or equations.]
+
+$
+y_(k+1) = f(x_k) + x_k
+$
+
+#q[What is a 1x1 convolution?  When would you use it?]
+
+$1 times 1$ conv consider every pixel in the image, but across all the channels
+
+- use to reduce the number of channels (e.g. VGG-16 have too many channels in deep layer, we can use $1 times 1$ conv to reduce the channel size)
+- making a full connection to another layer
+
+#q[How should we reduce the image size? How should we reduce the channel size?]
+
+- Reduce image size: max pool layer
+- Reduce channel size: $1 times 1$ conv layer
+
+#q[Describe the main ideas in transfer learning.  How should you apply deep learning when you have (a) only a little of your own data for your app, (b) moderate amount of you own data, (c) and lots and lots of your own data?]
+
+#q[What are some of the common augmentation methods?]
+
+= C4M3
+
+#q[What is the difference between image classification, classification with localization, and object detection?]
+
+- Image classification: classify the image into a single category
+- Classification with localization: classify the image and locate the object
+- Object detection: locate multiple objects in the image and classify them
+
+#q[
+In an image, suppose we want to detect pedestrian, car, bicycle and background.
++ What are the components in the training label?
++ What is the loss function for this object detection?
+]
+
+Components in training label:
+  - Bounding boxes for each object
+    - $b_x, b_y$: center of the box
+    - $b_h, b_w$: height and width of the box
+  - Class labels (pedestrian/car/bicycle/background)
+
+Loss Function:
+
+Assuming output vector is $[p_c, b_x, b_y, b_w, b_h, c_1, c_2, ..., c_n]$,
+then the loss function is:
+$
+  cal(L) = cases(
+    sum (y_i - hat(y)_i)^2 "if" y_1 = 1,
+    (y_1 - hat(y)_1)^2 "if" y_1 = 0,
+  )
+$
+
+#q[What are landmark points?  How do we use it in deep learning?]
+
+landmark points: important points in the image
+
+application in DL:
+- face emotion recognition
+- pose position detection
+
+#q[What is a sliding window used for?  How does it work?  What is its drawback?]
+
+- It can be used to detect objects in the image
+- How it works:
+  - select window size
+  - place window on the upper left corner
+  - feed that part into ConvNet (output labels)
+  - increase the window size and repeat the process
+- Drawbacks
+  - computation speed is slow, since a lot of windows need to be computed
+  - resulting boundbox is not good
+
+#q[What does YOLO stand for in deep learning?   What does it do?  What are its main idea?]
+
+#q[What does IoU stand for?  What is it use for?  Describe its main idea.]
+
+#q[What is object segmentation?  What is class segmentation?]
