@@ -394,3 +394,51 @@ YOLO stands for *You Only Look Once*.
 
 - Object segmentation: identifies and outlines individual instances of objects in an image
 - Class segmentation labels each instance according to its category
+
+= C4M4
+
+#q[What is face recognition?  Briefly describe the issues involved.]
+
+- Database has $k$ people's face images, given a new image, determine if it is one of the $k$ people
+- Problem:
+  - convnet does not work well with just few training example
+  - need to retrain the network if new data added
+
+#q[In one-shot learning, how do we determine if two facial images match?]
+
+We check the difference between the two images. $d("img"_1, "img"_2)$
+- if $d <= t$ then the two images match
+- if $d > t$ then the two images do not match
+
+#q[Briefly describe Siamese network in facial recognition.]
+
+Convert the two images into a feature vector, then calculate the distance between the two vectors.
+
+$
+v_1 = f(x_1), v_2 = f(x_2), d = ||v_1 - v_2||^2
+$
+
+#q[What is the meaning of triple loss?  What is the meaning of A, P and N?]
+
+Main idea: minimize the distance between the anchor image and the positive image, while maximizing the distance between the anchor image and the negative image.
+
+$
+  (||f(A) - f(P)||^2) / d(A, P) <=  (||f(A) - f(N)||^2) / d(A, N) + alpha ("margin")
+$
+
+$A$: anchor image
+$P$: positive image
+$N$: negative image
+
+$
+  cal(L)(A, P, N) = max(||f(A) - f(P)||^2 - ||f(A) - f(N)||^2 + alpha, 0)
+$
+
+#q[Briefly describe neural style transfer.]
+
+#q[In Neural Style Transfer, we use S, C and G to denote the images.  What do S, C and G stand for?  Briefly explain their roles in Neural Style Transfer.  Please give an example.]
+
+#q[In neural style transfer (NST), what does the content involve?  Which layer(s) the neural network is the content located?]
+
+#q[In NST, what does the style involve?  Were in the neural network is style located?]
+
