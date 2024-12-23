@@ -380,6 +380,17 @@ application in DL:
 
 #q[What does YOLO stand for in deep learning?   What does it do?  What are its main idea?]
 
+YOLO stands for *You Only Look Once*.
+
 #q[What does IoU stand for?  What is it use for?  Describe its main idea.]
 
+- IoU stand for *Intersection over Union*.
+- measure the overlap between 2 bounding box $=>$ evaluate the perf of object detection algorithms.
+- main idea:
+  - if IoU close to 1, the bounding box is good
+  - if IoU close to 0, the bounding box is bad
+
 #q[What is object segmentation?  What is class segmentation?]
+
+- Object segmentation: identifies and outlines individual instances of objects in an image
+- Class segmentation labels each instance according to its category
