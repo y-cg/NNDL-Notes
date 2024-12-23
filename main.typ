@@ -462,3 +462,64 @@ $
 
 - Style = textures, colors, visual patterns of the S image
 - Style is determined by how correlated the activations are across different channels in a layer.
+
+
+= C5M1
+#q[What is named entity recognition?  What are the input and output?]
+
+- NER extract entities from the text, such as person names, locations, organizations, dates, etc.
+
+- Input: a sentence
+- Output: a list of entities in the sentence
+
+#q[Briefly describe RNN.  What does it stand for?  What are the input and output?  You can draw a diagram.]
+
+#q[What does a language model do? Please give an example.]
+
+A language model (LM) is designed to predict the likelihood of a sequence of words, essentially predicting the next word in a sentence based on the context provided by the preceding words.
+
+#q[How does a language model predict a missing word? ]
+
+It use conditional probability to predict the next word given the previous words.
+
+#q[What is the drawback or weakness of (plain) RNN?]
+
+Vanishing gradient problem: the gradient becomes very small as it backpropagates through time, which makes it hard to learn long-range dependencies.
+
+#q[What do you use to overcome this weakness?]
+
+use GRU or LSTM
+
+#q[What is GRU?  What does it stand for?  What does it do?]
+
+- GRU stands for *Gated Recurrent Unit*
+- It use two types of gate:
+  - update gate: decide how much of the past information to keep
+  - reset gate: decide how much of the past information to forget
+
+#q[What is LSTM?  What does it stand for?  What does it do?]
+
+  - LSTM stands for *Long Short-Term Memory*
+  - use one more gate called *output gate* to decide how much of the current information to output
+
+= C5M2
+
+#[What is one-hot vector?  What are the elements in a one-hot vector?]
+
+#[What is the drawback of one-hot vector?]
+
+#[Briefly describe word embedding.  What does the word embedding matrix show?  What do columns show? What do the rows show? Please give example.]
+
+#[What is the advantage of using word embedding?]
+
+#[Compare one hot vector with word embedding vector. ]
+
+#[Give an example of using transfer learning in word embedding.  E.g. in named entity recognition.]
+
+#[How do we use word embedding in analogy, e.g. Man is to Woman as King is to ???]
+
+#[Briefly explain the vector space projections from Gensim.  (See the Gensim pdf file.)  What do the plots show?]
+
+#[What is the cosine similarity function?  What is it used for?]
+
+#[In sentiment classification, what is the input and output?]
