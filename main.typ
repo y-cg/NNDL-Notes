@@ -541,3 +541,30 @@ In word embedding, analogies are computed using vector arithmetic.
 #q[What is the cosine similarity function? What is it used for?]
 
 #q[In sentiment classification, what is the input and output?]
+
+
+= C5M3
+
+#q[In machine translation (MT) or neural machine translation (NMT), what is the input?  What is the output?]
+
+- Input: a sentence in one language
+- Output: a sentence in another language
+
+#q[How is MT and language model (LM) related?  You can draw a diagram.]
+
+- Language Model: always start with a vector with all zeros $a^(<0>)$
+- MT: start with a vector $a^(<0>)$ that is the output of the encoder
+
+#q[Under what basis in MT do we choose a sentence in translation, say from French to English?]
+
+#q[In MT, compare greedy search with beam search.]
+
+- Greedy search: choose the word with the highest probability at each time step
+
+- Beam search: keep track of the top $k$ candidates at each time step, then choose the best one at the end (in probability)
+
+Beam search can produce better results than greedy search, and also quicker than exhaustive search.
+
+
+#q[Describe the main ideas (up to 3) about the attention model.  What is its intuitive meaning? What does the attention model consists of?  What is the relation between context and attention weights?  Drawing a diagram may help.	]
+
