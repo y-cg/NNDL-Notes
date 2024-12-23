@@ -221,3 +221,62 @@ $
 $
 
 
+= C3M2
+#q[What is the purpose of error analysis?  Briefly describe how you would use it? Draw a table to illustrate.]
+
+Purpose:  understand the underlying causes of the errors by examing the misclassified examples
+
+- Manually examine ~100 mistakes (takes ~2 hours)
+- Categorize errors into meaningful groups
+- Count frequency of each error type
+- Focus on categories with highest potential impact
+
+
+
+#q[Supposed we have 2 difference sets of labeled data from different distributions. One large set is downloaded from the Internet, and a smaller set is specifically made for the app we want to build.  How should be divide the data for training, dev and testing?]
+
+#grid(columns: (50%, 50%), [
+Total Data:
+- 200,000 internet images
+- 10,000 app images
+], [
+Split:
+- Training: 200,000 internet + 5,000 app images
+- Dev: 2,500 app images
+- Test: 2,500 app images
+])
+
+Key Principle:
+- Dev/test must reflect future real-world data you want to perform well on
+- Don't randomly mix distributions, even if tempting
+
+= C4M1
+#q[Know how to calculate convolutions, compute output sizes and the number of parameters in each layer.]
+
+image ($W times H$), kernel ($K_w times K_h$), padding ($P_w$ and $P_h$), stride ($S_w$ and $S_h$)
+
+$
+  W_"out" = floor((W - K_w + 2P_w) / S_w + 1) #h(2em)
+  H_"out" = floor((H - K_h + 2P_h) / S_h + 1)
+$
+
+Parameters calculation:
+
+- Conv layer: $K_w times K_h times C_"in" times C_"out" + C_"out" ("bias for each filter")$
+
+- Fully connected layer: $N_"in" times N_"out" + N_"out" ("bias for each neuron")$
+
+
+#q[Why do CONV layers has so few parameters compared to densely connected layers?]
+
+- Shared parameters: the same filter is applied to every position in the input
+- Sparse connections: each output value depends only on a small number of input values
+- Reduce the risk of overfitting: fewer parameters $->$ less likely to overfit
+
+#q[Is convolution linear or nonlinear?  Is maxpool linear or nonlinear?]
+
+#q[Why do we place a maxpool layer between conv layers?]
+
+#q[In the architecture for VGG, ResNet, etc., we always place a maxpool layer between conv layers. Why?]
+
+
