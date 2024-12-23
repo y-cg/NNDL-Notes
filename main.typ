@@ -141,9 +141,25 @@ Problems near saddle points:
 
 #q[How does batch norm improve the calculations?  Under what circumstance would your use batch norm?]
 
-#q[Briefly explain softmax.  What is it use for?  ]
+
+How:
+- Speeds up learning (training)
+- Slight regularization effect (prevent overfitting)
+
+When:
+- new data with different distribution is introduced
+
+#q[Briefly explain softmax. What is it use for?]
+
+- Softmax is a mathematical function that transforms a vector of raw scores (logits) into probabilities that sum to one.
+
+- Softmax is typically used in *classification problems*, where it enables models to predict the likelihood of each class given an input.
 
 #q[How do we to calculate softmax?]
+
+$
+  "softmax"(x) = e^(x_i) / sum(e^(x_i))
+$
 
 #q[Name some of the deep learning frameworks presented in this class.  Which two are used the most today?]
 
