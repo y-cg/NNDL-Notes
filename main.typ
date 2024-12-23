@@ -210,6 +210,14 @@ $
 
 #q[What is Bayes optimal error?]
 
+Bayes optimal error is the *lowest possible error rate* for any classifier on a given classification problem with known class distributions. 
+
+
 #q[How do we compute avoidable bias? How do we compute the variance?]
+
+$
+  "Avoidable Bias" = "Bayes Error" - "Training Error" \
+  "Variance" = "Dev Error" - "Training Error"
+$
 
 
