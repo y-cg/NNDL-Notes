@@ -465,14 +465,14 @@ $
 
 
 = C5M1
-#q[What is named entity recognition?  What are the input and output?]
+#q[What is named entity recognition? What are the input and output?]
 
 - NER extract entities from the text, such as person names, locations, organizations, dates, etc.
 
 - Input: a sentence
-- Output: a list of entities in the sentence
+- Output: a list binary value, 1 if the word is an entity, 0 otherwise
 
-#q[Briefly describe RNN.  What does it stand for?  What are the input and output?  You can draw a diagram.]
+#q[Briefly describe RNN. What does it stand for? What are the input and output? You can draw a diagram.]
 
 #q[What does a language model do? Please give an example.]
 
@@ -490,36 +490,54 @@ Vanishing gradient problem: the gradient becomes very small as it backpropagates
 
 use GRU or LSTM
 
-#q[What is GRU?  What does it stand for?  What does it do?]
+#q[What is GRU? What does it stand for? What does it do?]
 
 - GRU stands for *Gated Recurrent Unit*
 - It use two types of gate:
   - update gate: decide how much of the past information to keep
   - reset gate: decide how much of the past information to forget
 
-#q[What is LSTM?  What does it stand for?  What does it do?]
+#q[What is LSTM? What does it stand for? What does it do?]
 
-  - LSTM stands for *Long Short-Term Memory*
-  - use one more gate called *output gate* to decide how much of the current information to output
+- LSTM stands for *Long Short-Term Memory*
+- use one more gate called *output gate* to decide how much of the current information to output
 
 = C5M2
 
-#[What is one-hot vector?  What are the elements in a one-hot vector?]
+#q[What is one-hot vector? What are the elements in a one-hot vector?]
 
-#[What is the drawback of one-hot vector?]
+- one-hot vector is a vector that has only one element as 1 and the rest are 0.
+- used to represent word in NLP
+- elements: binary values (0 or 1), all 0 except for one 1
 
-#[Briefly describe word embedding.  What does the word embedding matrix show?  What do columns show? What do the rows show? Please give example.]
+#q[What is the drawback of one-hot vector?]
 
-#[What is the advantage of using word embedding?]
+they have no relationship with each other, even if the words are related linguistically.
 
-#[Compare one hot vector with word embedding vector. ]
+#q[Briefly describe word embedding. What does the word embedding matrix show? What do columns show? What do the rows show? Please give example.]
 
-#[Give an example of using transfer learning in word embedding.  E.g. in named entity recognition.]
 
-#[How do we use word embedding in analogy, e.g. Man is to Woman as King is to ???]
+#q[What is the advantage of using word embedding?]
 
-#[Briefly explain the vector space projections from Gensim.  (See the Gensim pdf file.)  What do the plots show?]
+- Dense (not many zeros)
+- Lower dimensionality (300 dim)
+- Capture relationships between words
 
-#[What is the cosine similarity function?  What is it used for?]
+#q[Compare one hot vector with word embedding vector.]
 
-#[In sentiment classification, what is the input and output?]
+#q[Give an example of using transfer learning in word embedding. E.g. in named entity recognition.]
+
+- Pretrain a word embedding model on a large corpus (e.g. Wikipedia)
+
+- Specific Task: NER
+  - fine-tune the word embedding model on a smaller dataset
+
+#q[How do we use word embedding in analogy, e.g. Man is to Woman as King is to ???]
+
+In word embedding, analogies are computed using vector arithmetic.
+
+#q[Briefly explain the vector space projections from Gensim. (See the Gensim pdf file.) What do the plots show?]
+
+#q[What is the cosine similarity function? What is it used for?]
+
+#q[In sentiment classification, what is the input and output?]
