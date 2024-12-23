@@ -210,7 +210,7 @@ $
 
 #q[What is Bayes optimal error?]
 
-Bayes optimal error is the *lowest possible error rate* for any classifier on a given classification problem with known class distributions. 
+Bayes optimal error is the *lowest possible error rate* for any classifier on a given classification problem with known class distributions.
 
 
 #q[How do we compute avoidable bias? How do we compute the variance?]
@@ -222,9 +222,9 @@ $
 
 
 = C3M2
-#q[What is the purpose of error analysis?  Briefly describe how you would use it? Draw a table to illustrate.]
+#q[What is the purpose of error analysis? Briefly describe how you would use it? Draw a table to illustrate.]
 
-Purpose:  understand the underlying causes of the errors by examing the misclassified examples
+Purpose: understand the underlying causes of the errors by examing the misclassified examples
 
 - Manually examine ~100 mistakes (takes ~2 hours)
 - Categorize errors into meaningful groups
@@ -233,18 +233,22 @@ Purpose:  understand the underlying causes of the errors by examing the misclass
 
 
 
-#q[Supposed we have 2 difference sets of labeled data from different distributions. One large set is downloaded from the Internet, and a smaller set is specifically made for the app we want to build.  How should be divide the data for training, dev and testing?]
+#q[Supposed we have 2 difference sets of labeled data from different distributions. One large set is downloaded from the Internet, and a smaller set is specifically made for the app we want to build. How should be divide the data for training, dev and testing?]
 
-#grid(columns: (50%, 50%), [
-Total Data:
-- 200,000 internet images
-- 10,000 app images
-], [
-Split:
-- Training: 200,000 internet + 5,000 app images
-- Dev: 2,500 app images
-- Test: 2,500 app images
-])
+#grid(
+  columns: (50%, 50%),
+  [
+    Total Data:
+    - 200,000 internet images
+    - 10,000 app images
+  ],
+  [
+    Split:
+    - Training: 200,000 internet + 5,000 app images
+    - Dev: 2,500 app images
+    - Test: 2,500 app images
+  ],
+)
 
 Key Principle:
 - Dev/test must reflect future real-world data you want to perform well on
@@ -273,10 +277,10 @@ Parameters calculation:
 - Sparse connections: each output value depends only on a small number of input values
 - Reduce the risk of overfitting: fewer parameters $->$ less likely to overfit
 
-#q[Is convolution linear or nonlinear?  Is maxpool linear or nonlinear?]
+#q[Is convolution linear or nonlinear? Is maxpool linear or nonlinear?]
 
 - convolution: linear
-- max pool: nonlinear 
+- max pool: nonlinear
 
 #q[Why do we place a maxpool layer between conv layers?]
 
@@ -291,7 +295,7 @@ Parameters calculation:
 
 = C4M2
 
-#q[What are the classical networks presented in the lecture?  Briefly explain the main idea in each network.]
+#q[What are the classical networks presented in the lecture? Briefly explain the main idea in each network.]
 
 - LeNet: first successful CNN, used for handwritten digit recognition
 
@@ -308,10 +312,10 @@ Parameters calculation:
 #q[Briefly describe how a residual block works in ResNet. You can use a diagram or equations.]
 
 $
-y_(k+1) = f(x_k) + x_k
+  y_(k+1) = f(x_k) + x_k
 $
 
-#q[What is a 1x1 convolution?  When would you use it?]
+#q[What is a 1x1 convolution? When would you use it?]
 
 $1 times 1$ conv consider every pixel in the image, but across all the channels
 
@@ -323,7 +327,7 @@ $1 times 1$ conv consider every pixel in the image, but across all the channels
 - Reduce image size: max pool layer
 - Reduce channel size: $1 times 1$ conv layer
 
-#q[Describe the main ideas in transfer learning.  How should you apply deep learning when you have (a) only a little of your own data for your app, (b) moderate amount of you own data, (c) and lots and lots of your own data?]
+#q[Describe the main ideas in transfer learning. How should you apply deep learning when you have (a) only a little of your own data for your app, (b) moderate amount of you own data, (c) and lots and lots of your own data?]
 
 #q[What are some of the common augmentation methods?]
 
@@ -336,16 +340,16 @@ $1 times 1$ conv consider every pixel in the image, but across all the channels
 - Object detection: locate multiple objects in the image and classify them
 
 #q[
-In an image, suppose we want to detect pedestrian, car, bicycle and background.
-+ What are the components in the training label?
-+ What is the loss function for this object detection?
+  In an image, suppose we want to detect pedestrian, car, bicycle and background.
+  + What are the components in the training label?
+  + What is the loss function for this object detection?
 ]
 
 Components in training label:
-  - Bounding boxes for each object
-    - $b_x, b_y$: center of the box
-    - $b_h, b_w$: height and width of the box
-  - Class labels (pedestrian/car/bicycle/background)
+- Bounding boxes for each object
+  - $b_x, b_y$: center of the box
+  - $b_h, b_w$: height and width of the box
+- Class labels (pedestrian/car/bicycle/background)
 
 Loss Function:
 
@@ -358,7 +362,7 @@ $
   )
 $
 
-#q[What are landmark points?  How do we use it in deep learning?]
+#q[What are landmark points? How do we use it in deep learning?]
 
 landmark points: important points in the image
 
@@ -366,7 +370,7 @@ application in DL:
 - face emotion recognition
 - pose position detection
 
-#q[What is a sliding window used for?  How does it work?  What is its drawback?]
+#q[What is a sliding window used for? How does it work? What is its drawback?]
 
 - It can be used to detect objects in the image
 - How it works:
@@ -378,11 +382,11 @@ application in DL:
   - computation speed is slow, since a lot of windows need to be computed
   - resulting boundbox is not good
 
-#q[What does YOLO stand for in deep learning?   What does it do?  What are its main idea?]
+#q[What does YOLO stand for in deep learning? What does it do? What are its main idea?]
 
 YOLO stands for *You Only Look Once*.
 
-#q[What does IoU stand for?  What is it use for?  Describe its main idea.]
+#q[What does IoU stand for? What is it use for? Describe its main idea.]
 
 - IoU stand for *Intersection over Union*.
 - measure the overlap between 2 bounding box $=>$ evaluate the perf of object detection algorithms.
@@ -390,14 +394,14 @@ YOLO stands for *You Only Look Once*.
   - if IoU close to 1, the bounding box is good
   - if IoU close to 0, the bounding box is bad
 
-#q[What is object segmentation?  What is class segmentation?]
+#q[What is object segmentation? What is class segmentation?]
 
 - Object segmentation: identifies and outlines individual instances of objects in an image
 - Class segmentation labels each instance according to its category
 
 = C4M4
 
-#q[What is face recognition?  Briefly describe the issues involved.]
+#q[What is face recognition? Briefly describe the issues involved.]
 
 - Database has $k$ people's face images, given a new image, determine if it is one of the $k$ people
 - Problem:
@@ -415,15 +419,15 @@ We check the difference between the two images. $d("img"_1, "img"_2)$
 Convert the two images into a feature vector, then calculate the distance between the two vectors.
 
 $
-v_1 = f(x_1), v_2 = f(x_2), d = ||v_1 - v_2||^2
+  v_1 = f(x_1), v_2 = f(x_2), d = ||v_1 - v_2||^2
 $
 
-#q[What is the meaning of triple loss?  What is the meaning of A, P and N?]
+#q[What is the meaning of triple loss? What is the meaning of A, P and N?]
 
 Main idea: minimize the distance between the anchor image and the positive image, while maximizing the distance between the anchor image and the negative image.
 
 $
-  (||f(A) - f(P)||^2) / d(A, P) <=  (||f(A) - f(N)||^2) / d(A, N) + alpha ("margin")
+  (||f(A) - f(P)||^2) / d(A, P) <= (||f(A) - f(N)||^2) / d(A, N) + alpha ("margin")
 $
 
 $A$: anchor image
@@ -436,9 +440,25 @@ $
 
 #q[Briefly describe neural style transfer.]
 
-#q[In Neural Style Transfer, we use S, C and G to denote the images.  What do S, C and G stand for?  Briefly explain their roles in Neural Style Transfer.  Please give an example.]
+- combine the content of one image with the style of another image
 
-#q[In neural style transfer (NST), what does the content involve?  Which layer(s) the neural network is the content located?]
+#q[
+  In Neural Style Transfer, we use $S$, $C$ and $G$ to denote the images.
+  What do $S$, $C$ and $G$ stand for?
+  Briefly explain their roles in Neural Style Transfer.
+  Please give an example.
+]
 
-#q[In NST, what does the style involve?  Were in the neural network is style located?]
+- $S$: style image
+- $C$: content image
+- $G$: generated image
 
+#q[In neural style transfer (NST), what does the content involve? Which layer(s) the neural network is the content located?]
+
+- Content = higher lever macrostructure (overall shape) of the C image
+- the information is located in the deep layer of the neural network
+
+#q[In NST, what does the style involve? Where in the neural network is style located?]
+
+- Style = textures, colors, visual patterns of the S image
+- Style is determined by how correlated the activations are across different channels in a layer.
