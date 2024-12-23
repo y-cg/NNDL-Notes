@@ -1,4 +1,4 @@
-#let q = (content) => [
+#let q = content => [
   #text(fill: blue)[#content]
 ]
 
@@ -25,10 +25,10 @@
 - Supervised Learning
 Train a model on *labeled* or annotated examples.
 
-- Unsupervised Learning: 
+- Unsupervised Learning:
 Find patterns in a dataset without *label*
 
-- Self-supervised Learning: 
+- Self-supervised Learning:
 Does not use human-labeled training data but generating labels.
 
 - Reinforcement Learning:
@@ -36,7 +36,7 @@ choose action to maximize some reward function base on the env
 
 === Division of dataset
 
-- 100 \~ 10k data: 
+- 100 \~ 10k data:
   - 70/30 (70% training, 30% testing)
   - 60/20/20 (60% training, 20% dev, 20% testing)
 - 100K data: 90/5/5 (90% training, 5% dev, 5% testing)
@@ -45,7 +45,7 @@ choose action to maximize some reward function base on the env
 
 === Overfitting vs. Underfitting
 
-- Bias refers to the error that is due to *overly simplistic assumptions* in the learning algorithm. 
+- Bias refers to the error that is due to *overly simplistic assumptions* in the learning algorithm.
 - *High bias* can lead to *underfitting*
 
 $"bias" = "TrainingSet Error"$
@@ -78,7 +78,7 @@ The purpose of this term is to *constrain the model's complexity* by forcing the
 
 === Data Augmentation
 
-- images: flipping, rotating, randomly cropping 
+- images: flipping, rotating, randomly cropping
 - text: cropping, back translation
 
 === Data Normalization
@@ -111,7 +111,7 @@ $ b <- b - alpha V_(d b) $
 
 === Optima
 
-In most optima, we have *saddle points* rather than min or max points, because the training data are in high dimensions, you may *descending in one dimensions but ascending in another dimensions*. 
+In most optima, we have *saddle points* rather than min or max points, because the training data are in high dimensions, you may *descending in one dimensions but ascending in another dimensions*.
 
 Problems near saddle points:
 
@@ -121,7 +121,7 @@ Problems near saddle points:
 
 #pagebreak()
 
-#q[Explain the difference between parameters and hyperparameters.  Give examples of each.]
+#q[Explain the difference between parameters and hyperparameters. Give examples of each.]
 
 #q[When do we need to retune hyperparameters?]
 
@@ -129,7 +129,7 @@ Problems near saddle points:
 
 - When new data is introduced or the model performance degraded
 
-#q[Explain the “panda” versus the “caviar” approach in tuning hyperparameters.  In which situation would you use panda?  Use caviar? ]
+#q[Explain the “panda” versus the “caviar” approach in tuning hyperparameters. In which situation would you use panda? Use caviar? ]
 
 - "Panda" approach: Train only one model, ajust hyperparameter each day
   - You have lots of data but not much computational resources
@@ -137,9 +137,9 @@ Problems near saddle points:
 - "Caviar" approach: Train many models in *parallel* with different hyperparameters
   - You have lots of computational resources
 
-#q[Briefly explain the main idea in batch normalization.  How is batch norm similar to normalizing inputs (C2M1L09)?  How are they different?]
+#q[Briefly explain the main idea in batch normalization. How is batch norm similar to normalizing inputs (C2M1L09)? How are they different?]
 
-#q[How does batch norm improve the calculations?  Under what circumstance would your use batch norm?]
+#q[How does batch norm improve the calculations? Under what circumstance would your use batch norm?]
 
 
 How:
@@ -161,5 +161,55 @@ $
   "softmax"(x) = e^(x_i) / sum(e^(x_i))
 $
 
-#q[Name some of the deep learning frameworks presented in this class.  Which two are used the most today?]
+#q[Name some of the deep learning frameworks presented in this class. Which two are used the most today?]
+
+- Pytorch, developed by Facebook
+- Tensorflow / Keras, developed by Google
+
+= C3M1
+#q[What is the meaning of perfect precision? What is the meaning of perfect recall?]
+
+- Perfect precision means *no false positives*
+- Perfect recall means *no false negatives*
+
+#q[When you combine precision and recall, what is that metric called? Give the formula.]
+
+The metric that combines precision and recall is called the *F1 Score*.
+
+$
+  "F1 Score" = 2 times ("precision" times "recall") / ("precision" + "recall")
+$
+
+#q[What is the meaning for “dev set is like setting the target”? What is the consequence of this statement?]
+
+- It means the dev set is served as the benchmark to evaluate the performance of model
+
+- Biased dev set $->$ biased model performance (overfitting in dev set, poor real-world performance)
+
+
+#q[How should we divide our labeled data into training / dev / testing if we have
+  a) 1K labeled data
+  b) 100K labeled data
+  c) 1 million labeled data?]
+
+#figure(
+  table(
+    columns: (auto, auto),
+    align: center,
+    table.header(
+      [*Amount labeled data*],
+      [*Train/Dev/Test %*],
+    ),
+
+    [100 to 10K], [60/20/20],
+    [100K], [90/5/5],
+    [1M], [98/1/1],
+  ),
+)
+
+
+#q[What is Bayes optimal error?]
+
+#q[How do we compute avoidable bias? How do we compute the variance?]
+
 
